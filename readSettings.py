@@ -7,5 +7,3 @@ secondSetting = settings[1].rstrip()
 
 print(firstSetting)
 print(secondSetting)
-
-
