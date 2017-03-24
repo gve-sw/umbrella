@@ -10,12 +10,12 @@ def getToken():
 	appSettings = readSettings.loadSettings("../../settings.txt")
 	firstSetting = appSettings[0].rstrip()
 	return firstSetting
-	
+
 token=getToken()
 
 #Validate token
 if not token:
-  print "ERROR: environment variable \'INVESTIGATE_TOKEN\' not set. Invoke script with \'INVESTIGATE_TOKEN=%YourToken% python scripts.py\'"
+  print "Token not set"
   sys.exit(1)
 
 #Reading and validating commnad line argument
