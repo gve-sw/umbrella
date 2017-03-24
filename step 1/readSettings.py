@@ -20,7 +20,7 @@ def loadSettings(settingsFile):
 
 
 if __name__ == '__main__':
-    appSettings = loadSettings("../settings.txt")
+    appSettings = loadSettings("../../settings.txt")
 
     firstSetting = appSettings[0].rstrip()
     secondSetting = appSettings[1].rstrip()
