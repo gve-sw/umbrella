@@ -8,9 +8,9 @@ import pprint
 #Fetch API token from setting.txt
 def getToken():
 	appSettings = readSettings.loadSettings("../../settings.txt")
-
 	firstSetting = appSettings[0].rstrip()
 	return firstSetting
+	
 token=getToken()
 
 #Validate token
