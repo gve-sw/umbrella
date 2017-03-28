@@ -1,4 +1,4 @@
-##ASE APJ Team Alpha - Software Project Q3FY17
+## ASE APJ Team Alpha - Software Project Q3FY17
 This repository contains code for the software project of ASE APJ Team Alpha.
 
 The project is organized in a 3 step process, notably:
@@ -10,14 +10,14 @@ You will find the corresponding folders for each step.
 
 
 
-###Team Members
+### Team Members
 * Abhijith R
 * Jyotsna Kaniyaparambil
 * Renjana Pillai
 
 
 
-###Coaches/Sponsors
+### Coaches/Sponsors
 * Cosmina Calin (Main coach)
 * Robert E Roulhac
 * Jina Park
@@ -26,15 +26,15 @@ You will find the corresponding folders for each step.
 * Pedro Castro
 
 
-##Products in this project
+### Products in this project
 * [Cisco Umbrella](https://umbrella.cisco.com/)
 
 
 
-###API Documentation
+### API Documentation
 * [Cisco Umbrella APIs Documentation](https://docs.umbrella.com/developer)
 
 
 
-###Sample Application - coming soon
+### Sample Application - coming soon
 Coming soon
