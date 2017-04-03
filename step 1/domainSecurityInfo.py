@@ -3,7 +3,7 @@ import readSettings
 from urllib2 import Request, urlopen
 import os, sys
 import json
-import pprint
+
 
 #Fetch API token from setting.txt
 def getToken():
@@ -22,7 +22,7 @@ if not token:
 try:
     domainName=sys.argv[1]
 except IndexError:
-    print "Please enter a domain name\nUsage: domainSecurityInfo.py <Domain Name> (Eg: file.py example.com.com)"
+    print "Please enter a domain name\nUsage: domainSecurityInfo.py <Domain Name> (Eg: file.py example.com)"
     sys.exit(1)
 
 

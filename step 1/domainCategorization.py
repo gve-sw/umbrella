@@ -3,7 +3,7 @@ import readSettings
 from urllib2 import Request, urlopen
 import os, sys
 import json
-import pprint
+
 
 #Fetch API token from setting.txt
 def getToken():
