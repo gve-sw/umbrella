@@ -4,7 +4,6 @@ from urllib2 import Request, urlopen
 import os, sys
 import json
 
-
 #Fetch API token from setting.txt
 def getToken():
 	appSettings = readSettings.loadSettings("../../settings.txt")
@@ -22,7 +21,7 @@ if not token:
 try:
     domainName=sys.argv[1]
 except IndexError:
-    print "Please enter a domain name\nUsage: latestTags.py <Domain Name> (Eg: file.py example.com)"
+    print "Please enter a domain name\nUsage: getLatestTags.py <Domain Name> (Eg: file.py example.com)"
     sys.exit(1)
 
 
@@ -30,10 +29,8 @@ except IndexError:
 headers = {
   'Authorization': 'Bearer ' + token
 }
-request = Request('https://investigate.api.opendns.com/domains/'+domainName+'/latest_tags', headers=headers)
+request = Request('https://investigate.api.opendns.com/domains/categorization/'+domainName+'?showLabels', headers=headers)
 
 response_body = urlopen(request).read()
-print "latest_tags: " + response_body
-
-
+print response_body
 
