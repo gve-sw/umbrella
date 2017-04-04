@@ -27,7 +27,6 @@ except IndexError:
 
 
 # latest_tags
-
 headers = {
   'Authorization': 'Bearer ' + token
 }
