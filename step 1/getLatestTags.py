@@ -29,8 +29,8 @@ except IndexError:
 headers = {
   'Authorization': 'Bearer ' + token
 }
-request = Request('https://investigate.api.opendns.com/domains/categorization/'+domainName+'?showLabels', headers=headers)
+request = Request('https://investigate.api.opendns.com/domains/'+domainName+'/latest_tags', headers=headers)
 
 response_body = urlopen(request).read()
-print response_body
+print "latest_tags: " + response_body
 
