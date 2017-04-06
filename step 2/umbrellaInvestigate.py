@@ -39,7 +39,7 @@ class Wrapper(object) :
 
     def getDomainSecInfo(self):
         """
-        Retrieves domain score
+        Retrieves domain security info
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.umbrella.com/security/name/'+self.domainName, headers=headers)
@@ -49,7 +49,7 @@ class Wrapper(object) :
 
     def getDomainLabels(self):
         """
-        Retrieves domain score
+        Retrieves domain labels
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.opendns.com/domains/categorization/'+self.domainName+'?showLabels', headers=headers)
@@ -59,7 +59,7 @@ class Wrapper(object) :
 
     def getLatestTags(self):
         """
-        Retrieves domain score
+        Retrieves domain latest tags
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.opendns.com/domains/'+self.domainName+'/latest_tags', headers=headers)
@@ -69,7 +69,7 @@ class Wrapper(object) :
 
     def getLinksName(self):
         """
-        Retrieves domain score
+        Retrieves domain link names
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.opendns.com/links/name/'+self.domainName+'.json', headers=headers)
@@ -79,7 +79,7 @@ class Wrapper(object) :
 
     def getRecommendations(self):
         """
-        Retrieves domain score
+        Retrieves domain recommendations
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.opendns.com/recommendations/name/'+self.domainName+'.json', headers=headers)
@@ -89,7 +89,7 @@ class Wrapper(object) :
 
     def getSecurityName(self):
         """
-        Retrieves domain score
+        Retrieves domain security name
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.opendns.com/security/name/'+self.domainName+'.json', headers=headers)
@@ -99,7 +99,7 @@ class Wrapper(object) :
 
     def getDNSByName(self):
         """
-        Retrieves domain score
+        Retrieves dns database by domain name
         """
         headers=self.getHeader()
         request = Request('https://investigate.api.opendns.com/dnsdb/name/a/'+self.domainName+'.json', headers=headers)
