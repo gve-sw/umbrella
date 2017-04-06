@@ -27,9 +27,6 @@ def main():
     """
     investigateWrapper = Wrapper(token, domainName)
 
-    """
-    Retrieves domain categories
-    """
     getDomainCategorizationJson = investigateWrapper.getDomainCategorization();
     print "\n Domain Categorization\n"+getDomainCategorizationJson
 
