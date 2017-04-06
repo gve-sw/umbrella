@@ -24,7 +24,6 @@ except IndexError:
     print "Please enter a domain name\nUsage: getLatestTags.py <Domain Name> (Eg: file.py example.com)"
     sys.exit(1)
 
-
 # latest_tags
 headers = {
   'Authorization': 'Bearer ' + token
