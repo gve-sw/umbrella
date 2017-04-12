@@ -21,7 +21,6 @@ def main():
 
     token=getToken()
     domainName = raw_input('Enter a Domain name: ')
-
     """
     Initialise Wrapper
     """
