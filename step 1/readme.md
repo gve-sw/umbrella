@@ -4,8 +4,8 @@ Granular scripts which accepts a domain name as command line argument and return
 
 #### Author(s):
 
-Abhijith R (abhr@cisco.com)
-Renjana Pillai (repillai@cisco.com)
+* Abhijith R (abhr@cisco.com)
+* Renjana Pillai (repillai@cisco.com)
 
 Date: April 2017
 
