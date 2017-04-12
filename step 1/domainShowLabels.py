@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+"""
+
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Mar 24, 2017
+Retrieves the Label Information of a domain
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -25,7 +32,7 @@ except IndexError:
     print "Please enter a domain name\nUsage: domainShowLabels.py <Domain Name> (Eg: file.py example.com)"
     sys.exit(1)
 
-# domains/categorization
+# domains/labels
 
 headers = {
   'Authorization': 'Bearer ' + token

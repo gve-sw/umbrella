@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+"""
+
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Mar 24, 2017
+Retrieves the latest tag Information of a domain
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys

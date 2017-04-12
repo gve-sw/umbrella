@@ -102,7 +102,7 @@ class Wrapper(object) :
         Retrieves dns database by domain name
         """
         headers=self.getHeader()
-        request = Request('https://investigate.api.opendns.com/dnsdb/name/a/'+self.domainName+'.json', headers=headers)
+        request = Request('https://investigate.api.opendns.com/dnsdb/name/txt/'+self.domainName+'.json', headers=headers)
 
         response_body = urlopen(request).read()
         return response_body

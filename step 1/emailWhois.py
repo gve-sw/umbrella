@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+"""
+
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Mar 24, 2017
+Retrieves the Whois Information of a emailId
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -25,7 +32,7 @@ except IndexError:
     print "Please enter a email address\nUsage: emailWhois.py <emailID> (Eg: file.py test@example.com)"
     sys.exit(1)
 
-# domains/categorization
+# whois
 
 headers = {
   'Authorization': 'Bearer ' + token

@@ -1,4 +1,12 @@
-#!/usr/bin/env python
+
+"""
+
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Mar 24, 2017
+Retrieves the Security Information of a domain
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -26,7 +34,6 @@ except IndexError:
     sys.exit(1)
 
 
-# domains/categorization
 headers = {
   'Authorization': 'Bearer ' + token
 }
