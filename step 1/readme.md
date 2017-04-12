@@ -24,5 +24,5 @@ You are responsible for reviewing and testing any scripts you run thoroughly bef
    
 #### INFORMATION:
 If you have further questions about this API and script, please contact GVE. Here are the contact details:
-       For internal Cisco employees, please contact GVE at http://go2.cisco.com/gve
-       For Cisco partners, please open a case at www.cisco.com/go/ph
+* For internal Cisco employees, please contact GVE at http://go2.cisco.com/gve
+* For Cisco partners, please open a case at www.cisco.com/go/ph
