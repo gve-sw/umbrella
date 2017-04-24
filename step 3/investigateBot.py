@@ -25,7 +25,6 @@ def sendSparkGET(url):
     """
     This method is used for:
         -retrieving message text, when the webhook is triggered with a message
-        -Getting the username of the person who posted the message if a command is recognized
     """
     request = urllib2.Request(url,
                             headers={"Accept" : "application/json",
@@ -37,7 +36,7 @@ def sendSparkGET(url):
 def sendSparkPOST(url, data):
     """
     This method is used for:
-        -posting a message to the Spark room to confirm that a command was received and processed
+        -posting a message to the Spark room
     """
     request = urllib2.Request(url, json.dumps(data),
                             headers={"Accept" : "application/json",
@@ -59,14 +58,14 @@ def index(request):
         in_message = in_message.replace(bot_name, '')
         if 'hi'in in_message or "hello" in in_message:
             sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "markdown": "<h2>Umbrella Investigate</h2>"})
-            msg1 = "Hi there! My name is <h4>Laku<h4>\n Please enter a domain name!!!"
-            sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "markdown": msg1})
-        elif '.com' in in_message:
+            msg1 = "Hey there!!! My name is Laku\n I'm here to help you with the security related information of a domain!!!\n Enter a domain name to get started\nUsage: Laku /domainName"
+            sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": msg1})
+        elif '.com' in in_message or '.org' in in_message:
             global domName
             global investigateWrapper
             domName= in_message.split("/")
             investigateWrapper = Wrapper(token, domName[1])
-            sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "What security information about "+domName[1]+" would you like to know?\nDomain Category\nDomain Score\nSecurity Information\nLabels\nLatest Tags\nLinks\nRecommendations\nSecurity Name\nDNS resource record by Name"})
+            sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "What security information about "+domName[1]+" would you like to know?\nDomain Category\nDomain Score\nLabels\nDomain Tagging Date\nLinks\nRecommendations\nDNS resource record by Name"})
         elif 'category' in in_message or 'categories' in  in_message:
         #Get Domain Categories
             try:
@@ -94,25 +93,32 @@ def index(request):
             except:
                 sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
                 print(sys.exc_info()[0])
-        elif 'securityinfo' in in_message:
+        #elif 'securityinfo' in in_message:
         #Get Domain Security Information
-            try:
-                getDomainSecInfoJson = investigateWrapper.getDomainSecInfo();
-                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Security Info\n"+getDomainSecInfoJson})
-            except:
-                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
+        #     try:
+        #         getDomainSecInfoJson = investigateWrapper.getDomainSecInfo();
+        #         print(getDomainSecInfoJson)
+        #         sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Security Info\n"+getDomainSecInfoJson})
+        #     except Exception, e:
+        #         sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"+str(e)})
         elif 'label' in in_message or 'labels' in in_message:
-        #Get Domain Lable
+        #Get Domain Label
             try:
                 getDomainLabelsJson = investigateWrapper.getDomainLabels();
-                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Labels\n"+getDomainLabelsJson})
-            except:
-                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
+                jlabel= json.loads(getDomainLabelsJson)
+                scoreValue = ast.literal_eval(json.dumps(jlabel))
+                for key,value in scoreValue.items():
+                    sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Labels\n Name: "+key})
+                    for k,v in value.iteritems():
+                        sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": " "+str(k)+": "+str(v)})
+            except Exception, e:
+                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"+str(e)})
         elif 'tags' in in_message or 'tag' in in_message:
         #Get Domain Tags
             try:
                 getLatestTagsJson = investigateWrapper.getLatestTags();
-                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Latest Tags\n"+getLatestTagsJson})
+                print(getLatestTagsJson)
+                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Tagging Date\n"+getLatestTagsJson})
             except:
                 sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
         elif 'link' in in_message or 'links' in in_message:
@@ -129,13 +135,13 @@ def index(request):
                 sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Recommendations\n"+getRecommendationsJson})
             except:
                 sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
-        elif 'securityname' in in_message:
-        #Get Security Name
-            try:
-                getSecurityNameJson = investigateWrapper.getSecurityName();
-                endSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Security Name\n"+getSecurityNameJson})
-            except:
-                sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
+        # elif 'securityname' in in_message:
+        # #Get Security Name
+        #     try:
+        #         getSecurityNameJson = investigateWrapper.getSecurityName();
+        #         endSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "\nDomain Security Name\n"+getSecurityNameJson})
+        #     except:
+        #         sendSparkPOST("https://api.ciscospark.com/v1/messages", {"roomId": webhook['data']['roomId'], "text": "Please enter a domain name\n"})
         elif 'dns' in in_message or 'resource' in in_message:
         #Get DNS Resource Record by Name
             try:

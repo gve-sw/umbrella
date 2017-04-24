@@ -42,7 +42,7 @@ class Wrapper(object) :
         Retrieves domain security info
         """
         headers=self.getHeader()
-        request = Request('https://investigate.api.umbrella.com/security/name/'+self.domainName, headers=headers)
+        request = Request('https://investigate.api.umbrella.com/security/name/'+self.domainName+'.json', headers=headers)
 
         response_body = urlopen(request).read()
         return response_body
