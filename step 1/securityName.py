@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+"""
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Apr 3, 2017
+Returns a Security name associated with the domain name
+
+"""
+
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -22,7 +29,7 @@ if not token:
 try:
     domainName=sys.argv[1]
 except IndexError:
-    print "Please enter a domain name\nUsage: domainShowLabels.py <Domain Name> (Eg: file.py example.com)"
+    print "Please enter a domain name\nUsage: securityName.py <Domain Name> (Eg: file.py example.com)"
     sys.exit(1)
 # security/name
 

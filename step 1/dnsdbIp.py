@@ -1,4 +1,10 @@
-#!/usr/bin/env python
+"""
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Apr 3, 2017
+Queries DNS database for the history that Umbrella has seen for a given IP address
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -22,7 +28,7 @@ if not token:
 try:
     domainName=sys.argv[1]
 except IndexError:
-    print "Please enter a domain name\nUsage: domainSecurityInfo.py <Domain Name> (Eg: file.py example.com.com)"
+    print "Please enter a IP address\nUsage: dnsdblp.py <IP> (Eg: file.py 0.0.0.0)"
     sys.exit(1)
 # dnsdb/ip
 

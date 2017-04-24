@@ -3,6 +3,7 @@ import json
 import readSettings
 import six
 from six import *
+sys.path.append('../step 2/')
 from umbrellaInvestigate import Wrapper
 
 def main():

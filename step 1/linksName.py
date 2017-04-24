@@ -1,3 +1,11 @@
+"""
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Apr 3, 2017
+Returns a list of domain names that have been frequently seen requested around the same time (up to 60 seconds before or after) as the given domain name, 
+but that are not frequently associated with other domain names
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -21,7 +29,7 @@ if not token:
 try:
     domainName=sys.argv[1]
 except IndexError:
-    print "Please enter a domain name\nUsage: domainShowLabels.py <Domain Name> (Eg: file.py example.com)"
+    print "Please enter a domain name\nUsage: linksName.py <Domain Name> (Eg: file.py example.com)"
     sys.exit(1)
 # links/name
 

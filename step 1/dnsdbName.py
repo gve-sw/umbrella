@@ -1,4 +1,10 @@
-#!/usr/bin/env python
+"""
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Apr 3, 2017
+Queries DNS database for the history that Umbrella has seen for a given domain name
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys

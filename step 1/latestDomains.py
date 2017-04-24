@@ -1,3 +1,10 @@
+"""
+Umbrella Investigate API
+Author: Abhijith R, Renjana Pillai
+Date  Apr 3, 2017
+Latest_domains endpoint shows whether the IP address entered as input has any known malicious domains associated with it
+
+"""
 import readSettings
 from urllib2 import Request, urlopen
 import os, sys
@@ -21,7 +28,7 @@ if not token:
 try:
     domainName=sys.argv[1]
 except IndexError:
-    print "Please enter a domain name\nUsage: domainShowLabels.py <Domain Name> (Eg: file.py example.com)"
+    print "Please enter an IP address\nUsage: latestDomains.py <Domain Name> (Eg: file.py 0.0.0.0)"
     sys.exit(1)
 # latest_domains
 
