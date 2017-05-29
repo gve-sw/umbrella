@@ -12,7 +12,6 @@ You will find the corresponding folders for each step.
 
 ### Team Members
 * Abhijith R
-* Jyotsna Kaniyaparambil
 * Renjana Pillai
 
 
